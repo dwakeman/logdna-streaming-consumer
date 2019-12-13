@@ -1,10 +1,10 @@
 {
-  "name": "activity-tracker-dallas-dw-streaming-consumer",
+  "name": "logdna-streaming-consumer",
   "version": "3.0.0",
-  "description": "Nodejs sample that uses node-rdkafka to interact with Event Streams",
+  "description": "Event Streams consumer that processes events being streamed from Activity Tracker with LogDNA",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ibm-messaging/event-streams-samples"
+    "url": "https://github.com/dwakeman/logdna-streaming-consumer"
   },
   "scripts": {
     "start": "node ./app.js"
@@ -35,6 +35,7 @@
   "dependencies": {
     "@cloudant/cloudant": "^4.2.1",
     "cfenv": "^1.2.2",
+    "log4js": "^5.2.0",
     "node-rdkafka": "2.7.0"
   },
   "engines": {
