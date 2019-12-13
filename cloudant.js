@@ -45,7 +45,7 @@ exports.insert = function(doc)  {
     logger.debug('[cloudant] - inserting the event into the database...');    
     logger.debug('[cloudant] - the document to be added is: ' + JSON.stringify(newDoc));
 
-    atdb.insert(newDoc)
+    atdb.insert(doc)
     .then(addedDoc => {
 //      console.log('Add event successful');
 

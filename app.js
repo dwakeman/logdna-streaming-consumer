@@ -24,6 +24,10 @@
  *   TOPIC_NAME:  The name of the topic to which this app subscribes.
  *   DB_NAME:     The name of the Cloudant database to insert the messages.
  * 
+ * It also requires two services to be bound to it:
+ *   Event Streams:  This service will have a topic that has been configured as
+ *                   a target for streaming from Activity Tracker
+ *   Cloudant:       This is where the messages will be written.  
  */
 
 const appName = require('./package').name;
