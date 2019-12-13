@@ -42,16 +42,18 @@ logger.debug('[cloudant] - connected to database.');
 
 
 exports.insert = function(doc)  {
-    logger.debug('[cloudant] - inserting the event into the database...');    
-    logger.debug('[cloudant] - the document to be added is: ' + JSON.stringify(doc));
 
-    atdb.insert(doc)
+    var newDoc = {
+        event: doc
+    };
+
+    atdb.insert(newDoc)
     .then(addedDoc => {
-//      console.log('Add event successful');
+        logger.debug('[cloudant] - added document: ' + JSON.stringify(addedDoc));
 
     })
     .catch(error => {
-      logger.debug('[cloudant] - Add event failed with error: ' + JSON.stringify(error));
+        logger.debug('[cloudant] - Add event failed with error: ' + JSON.stringify(error));
 
     });
 }
