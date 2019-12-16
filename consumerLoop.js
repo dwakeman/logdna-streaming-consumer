@@ -102,7 +102,7 @@ exports.buildConsumer = function(Kafka, consumer_opts, topicName, shutdown) {
                     var mValue;
                     if (typeof m.value.constructor === 'object') {
                         mValue = JSON.parse(m.value.toString());
-                    } else if (typeof m.value.constructor === 'string') {
+                    } else {
                         mValue = { message: m.value }
                     }
 
