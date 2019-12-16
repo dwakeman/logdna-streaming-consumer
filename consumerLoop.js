@@ -100,12 +100,19 @@ exports.buildConsumer = function(Kafka, consumer_opts, topicName, shutdown) {
 
                     // it may be an error in LogDNA, but need to verify if m.value is an object or a string
                     var mValue;
+                    try {
+                        mValue = JSON.parse(m.value.toString());
+                    }
+                    catch (err) {
+                        mValue = { message: m.value.toString() }
+                    }
+/*
                     if (typeof m.value.constructor === 'object') {
                         mValue = JSON.parse(m.value.toString());
                     } else {
                         mValue = { message: m.value.toString() }
                     }
-
+*/
                     logger.debug('The message to be inserted is: ' + JSON.stringify(mValue));
 
                     cloudant.insert(mValue);
