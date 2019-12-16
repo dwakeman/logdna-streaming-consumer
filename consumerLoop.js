@@ -103,7 +103,7 @@ exports.buildConsumer = function(Kafka, consumer_opts, topicName, shutdown) {
                     if (typeof m.value.constructor === 'object') {
                         mValue = JSON.parse(m.value.toString());
                     } else {
-                        mValue = { message: m.value }
+                        mValue = { message: m.value.toString() }
                     }
 
                     logger.debug('The message to be inserted is: ' + JSON.stringify(mValue));
